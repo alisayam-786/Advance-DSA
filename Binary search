@@ -1,0 +1,51 @@
+#include <stdio.h>
+
+void main()
+{
+    int a[5], item, i;
+    int low, high, mid;
+    int flag = 0, LOC;
+
+    printf("Enter 5 elements in ascending order:\n");
+
+    for(i = 0; i <= 4; i++)
+    {
+        scanf("%d", &a[i]);
+    }
+
+    printf("Enter element to search: ");
+    scanf("%d", &item);
+
+    low = 0;
+    high = 4;
+
+    while(low <= high)
+    {
+        mid = (low + high) / 2;
+
+        if(a[mid] == item)
+        {
+            flag = 1;
+            LOC = mid + 1;
+            break;
+        }
+        else if(item < a[mid])
+        {
+            high = mid - 1;
+        }
+        else
+        {
+            low = mid + 1;
+        }
+    }
+
+    if(flag == 1)
+    {
+        printf("Element found at location %d", LOC);
+    }
+    else
+    {
+        printf("No Element found");
+    }
+
+}
